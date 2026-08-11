@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Review Kusuma Hotel Syariah Yogyakarta. Kamar bebas asap rokok, playground anak, dan sarapan gudeg." />
     <link rel="stylesheet" href="style.css" />
     <title>Blog Post — ghufrxn.</title>
   </head>
@@ -137,8 +138,9 @@
       const post = posts.find(p => p.id === postId);
 
       if (post) {
-        // Update judul tab browser
-        document.title = `${post.title} — ghufrxn.`;
+        // Update judul tab browser + meta description untuk SEO
+        document.title = `${post.metaTitle || post.title} — ghufrxn.`;
+        document.querySelector('meta[name="description"]').setAttribute('content', post.metaDescription || post.excerpt);
 
         // Isi header
         document.getElementById('postMeta').innerHTML = `

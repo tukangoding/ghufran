@@ -61,6 +61,13 @@ body {
 }
 
 /* ── NAVBAR ── */
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--primary-color);
+}
+
 .navbar {
   height: var(--nav-height);
   background-color: var(--primary-color);
@@ -1473,6 +1480,24 @@ section {
   padding: 1px 6px;
   border-radius: 4px;
   color: var(--black-color);
+}
+
+/* Placeholder gambar artikel */
+.post-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 2.5rem;
+  border: 2px dashed var(--black-color);
+  background: var(--gum-peach);
+  color: #888;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 1rem;
 }
 
 /* Artikel lainnya */
