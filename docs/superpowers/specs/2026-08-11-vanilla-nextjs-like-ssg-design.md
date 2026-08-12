@@ -42,16 +42,18 @@ index.html                 homepage manual, blog-list di-inject via marker
 - Generate:
   - `/blog/<slug>/index.html`: title/meta/canonical/OG dari metaTitle &
     metaDescription, JSON-LD (Review untuk hotel, Article untuk lain),
-    kategori+tanggal, konten statis, "artikel lainnya", `<base href="../../">`.
+    kategori+tanggal, konten statis, "artikel lainnya".
   - `/blog/index.html`: daftar semua post (card dengan `data-category`),
-    JSON-LD ItemList/Blog, `<base href="../">`, meta description.
-  - `blog.html`: redirect `<meta http-equiv="refresh" content="0; url=blog/">`.
-  - `blog-post.html`: redirect JS `?id=N` -> `blog/<slug>/`.
+    JSON-LD ItemList/Blog, meta description.
+  - `blog.html`: redirect `<meta http-equiv="refresh" content="0; url=/blog/">`.
+  - `blog-post.html`: redirect JS `?id=N` -> `/blog/<slug>/`.
   - `index.html`: inject 3 post terbaru ke marker
     `<!-- BLOG:LIST:START --> ... <!-- BLOG:LIST:END -->`.
   - `sitemap.xml` dan `robots.txt`.
-- Semua link internal memakai path relatif-root (tanpa leading slash) agar
-  tetap jalan di sub-path deployment (mis. /ghufran/).
+- Semua link internal root-relative (`/blog/`, `/`, `/style.css`) tanpa
+  `<base>`. Basis asumsi: deployment di root domain (mis. ghufolio.edgeone.dev).
+  Tanpa `<base>`, `document.baseURI` mengikuti URL saat ini sehingga resolusi
+  link konsisten antara load statis dan swap via router (pushState).
 - Verifikasi manual: `node scripts/build.mjs`.
 
 ### Router klien (router.js)

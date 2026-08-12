@@ -9,7 +9,7 @@
     <script>
       const m = {"4":"kusuma-hotel-syariah-yogyakarta","1":"belajar-css-dari-nol","2":"coding-sambil-tetap-konsisten-di-gym","3":"kenapa-rap-dan-coding-mirip"};
       const id = new URLSearchParams(location.search).get("id");
-      location.replace("blog/" + (m[id] ? m[id] + "/" : ""));
+      location.replace("/blog/" + (m[id] ? m[id] + "/" : ""));
     </script>
   </body>
 </html>

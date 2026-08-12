@@ -19,8 +19,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 
 // ── KONFIGURASI ──
-// TODO: ganti sesuai domain final deployment (contoh project pages GitHub).
-const SITE_URL = "https://tukangoding.github.io/ghufran";
+// Domain final deployment (root-relative link dipakai di seluruh situs).
+const SITE_URL = "https://ghufolio.edgeone.dev";
 
 const posts = (await import(path.join(ROOT, "posts.js"))).default;
 
@@ -49,7 +49,7 @@ function svgArrow() {
   return `<svg class="blog-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13L13 3M13 3H6M13 3v7"/></svg>`;
 }
 
-// kartu besar (daftar blog / homepage). base = prefiks link relatif ke <base>.
+// kartu besar (daftar blog / homepage). base = prefiks link (root-relative).
 function postCard(post, index, base) {
   const num = String(index + 1).padStart(2, "0");
   return `
@@ -135,7 +135,7 @@ function jsonLd(post) {
 // ── 1. BLOG INDEX (/blog/) ──
 console.log("build: blog/index.html");
 let blogIndex = read("templates/blog-index.html");
-const blogCards = posts.map((p, i) => postCard(p, i, "blog/")).join("\n");
+const blogCards = posts.map((p, i) => postCard(p, i, "/blog/")).join("\n");
 const blogLd = JSON.stringify(
   {
     "@context": "https://schema.org",
@@ -169,7 +169,7 @@ console.log("build: blog/<slug>/index.html");
 const postTpl = read("templates/post.html");
 for (const post of posts) {
   const others = posts.filter((p) => p.id !== post.id).slice(0, 2);
-  const otherCards = others.map((o) => otherCard(o, "blog/")).join("\n");
+  const otherCards = others.map((o) => otherCard(o, "/blog/")).join("\n");
   const page = postTpl
     .replace("{{TITLE}}", esc(post.metaTitle || post.title))
     .replace("{{META_DESCRIPTION}}", esc(post.metaDescription || post.excerpt))
@@ -195,7 +195,7 @@ const ei = indexHtml.indexOf(END);
 if (si === -1 || ei === -1 || ei < si) {
   throw new Error("Marker BLOG:LIST tidak ditemukan di index.html");
 }
-const homeCards = posts.slice(0, 3).map((p, i) => postCard(p, i, "blog/")).join("\n");
+const homeCards = posts.slice(0, 3).map((p, i) => postCard(p, i, "/blog/")).join("\n");
 indexHtml = indexHtml.slice(0, si + START.length) + "\n" + homeCards + "\n" + indexHtml.slice(ei);
 write("index.html", indexHtml);
 
@@ -208,11 +208,11 @@ write(
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="0; url=blog/" />
+    <meta http-equiv="refresh" content="0; url=/blog/" />
     <title>Mengalihkan ke blog…</title>
   </head>
   <body>
-    <p style="font-family: sans-serif; padding: 2rem"><a href="blog/">Ke blog →</a></p>
+    <p style="font-family: sans-serif; padding: 2rem"><a href="/blog/">Ke blog →</a></p>
   </body>
 </html>
 `,
@@ -233,7 +233,7 @@ write(
     <script>
       const m = {${idMap}};
       const id = new URLSearchParams(location.search).get("id");
-      location.replace("blog/" + (m[id] ? m[id] + "/" : ""));
+      location.replace("/blog/" + (m[id] ? m[id] + "/" : ""));
     <\/script>
   </body>
 </html>
