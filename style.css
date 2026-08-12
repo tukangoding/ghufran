@@ -61,10 +61,16 @@ body {
 }
 
 /* ── NAVBAR ── */
-.navbar-wrapper {
+/* Sticky di <header>, bukan .navbar-wrapper: wrapper berparent <header> yang
+   tingginya sama dengan dirinya, jadi tidak ada ruang untuk "menempel".
+   Sticky di header (parent = body) bisa menempel di top:0 sepanjang halaman. */
+header {
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.navbar-wrapper {
   background-color: var(--primary-color);
 }
 
