@@ -62,17 +62,19 @@ document.addEventListener("mousemove", (e) => {
 });
 
 // 6. Efek hover — ring membesar saat di atas elemen interaktif
-const hoverables = document.querySelectorAll(
-  "a, button, .sk-card, .portfolio-card",
-);
+//    (event delegation supaya tetap jalan setelah transisi tanpa reload)
+const HOVER_SELECTOR = "a, button, .sk-card, .portfolio-card";
 
-hoverables.forEach((el) => {
-  el.addEventListener("mouseenter", () =>
-    cursorRing.classList.add("cursor-ring--hover"),
-  );
-  el.addEventListener("mouseleave", () =>
-    cursorRing.classList.remove("cursor-ring--hover"),
-  );
+document.addEventListener("mouseover", (e) => {
+  if (e.target.closest(HOVER_SELECTOR)) {
+    cursorRing.classList.add("cursor-ring--hover");
+  }
+});
+
+document.addEventListener("mouseout", (e) => {
+  if (e.target.closest(HOVER_SELECTOR)) {
+    cursorRing.classList.remove("cursor-ring--hover");
+  }
 });
 
 // 7. Sembunyikan cursor saat keluar dari window

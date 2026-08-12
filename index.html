@@ -22,7 +22,7 @@
               <li data-page="Skills"><a href="#skills">Skills</a></li>
               <li data-page="Portfolio"><a href="#portfolio">Portfolio</a></li>
               <li data-page="Videos"><a href="#videos">Videos</a></li>
-              <li data-page="Blog"><a href="blog.html">Blog</a></li>
+              <li data-page="Blog"><a href="blog/">Blog</a></li>
               <li data-page="Contact"><a href="#contact">Contact</a></li>
             </ul>
 
@@ -117,7 +117,7 @@
               >
                 <path d="M6 4l4 4-4 4" />
               </svg> </a
-            ><a href="blog.html" class="mobile-menu__item" data-page="Blog">
+            ><a href="blog/" class="mobile-menu__item" data-page="Blog">
               <div class="item-left">
                 <span class="item-num">06</span>
                 <span class="item-label">Blog</span>
@@ -655,82 +655,53 @@
 
           <div class="blog-header">
             <h2 class="section-title">Thoughts &<br /><em>bars.</em></h2>
-            <a href="blog.html" class="blog-see-all">Lihat semua →</a>
+            <a href="blog/" class="blog-see-all">Lihat semua →</a>
           </div>
 
-          <div class="blog-list">
-            <a href="blog-post.html?id=4" class="blog-item">
+          <!-- BLOG:LIST:START -->
+
+            <a href="blog/kusuma-hotel-syariah-yogyakarta/" class="blog-item" data-category="Travel">
               <div class="blog-item__left">
                 <span class="blog-num">01</span>
               </div>
               <div class="blog-item__center">
                 <span class="blog-category">Travel</span>
-                <h3 class="blog-title">
-                  Review Kusuma Hotel Syariah Yogyakarta: Surga Bebas Asap Rokok &amp; Ramah Anak di Sleman
-                </h3>
+                <h3 class="blog-title">Review Kusuma Hotel Syariah Yogyakarta: Surga Bebas Asap Rokok &amp; Ramah Anak di Sleman</h3>
               </div>
               <div class="blog-item__right">
                 <span class="blog-date">Aug 2026</span>
-                <svg
-                  class="blog-arrow"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.2"
-                >
-                  <path d="M3 13L13 3M13 3H6M13 3v7" />
-                </svg>
+                <svg class="blog-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13L13 3M13 3H6M13 3v7"/></svg>
               </div>
             </a>
 
-            <a href="blog-post.html?id=1" class="blog-item">
+            <a href="blog/belajar-css-dari-nol/" class="blog-item" data-category="Coding">
               <div class="blog-item__left">
                 <span class="blog-num">02</span>
               </div>
               <div class="blog-item__center">
                 <span class="blog-category">Coding</span>
-                <h3 class="blog-title">
-                  Belajar CSS dari Nol: Apa yang Tidak Diajarkan Tutorial
-                </h3>
+                <h3 class="blog-title">Belajar CSS dari Nol: Apa yang Tidak Diajarkan Tutorial</h3>
               </div>
               <div class="blog-item__right">
                 <span class="blog-date">Apr 2026</span>
-                <svg
-                  class="blog-arrow"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.2"
-                >
-                  <path d="M3 13L13 3M13 3H6M13 3v7" />
-                </svg>
+                <svg class="blog-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13L13 3M13 3H6M13 3v7"/></svg>
               </div>
             </a>
 
-            <a href="blog-post.html?id=2" class="blog-item">
+            <a href="blog/coding-sambil-tetap-konsisten-di-gym/" class="blog-item" data-category="Lifestyle">
               <div class="blog-item__left">
                 <span class="blog-num">03</span>
               </div>
               <div class="blog-item__center">
                 <span class="blog-category">Lifestyle</span>
-                <h3 class="blog-title">
-                  Cara Saya Coding Sambil Tetap Konsisten di Gym
-                </h3>
+                <h3 class="blog-title">Cara Saya Coding Sambil Tetap Konsisten di Gym</h3>
               </div>
               <div class="blog-item__right">
                 <span class="blog-date">Mar 2026</span>
-                <svg
-                  class="blog-arrow"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.2"
-                >
-                  <path d="M3 13L13 3M13 3H6M13 3v7" />
-                </svg>
+                <svg class="blog-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13L13 3M13 3H6M13 3v7"/></svg>
               </div>
             </a>
-          </div>
+<!-- BLOG:LIST:END -->
         </div>
       </section>
 
@@ -874,5 +845,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="router.js"></script>
   </body>
 </html>

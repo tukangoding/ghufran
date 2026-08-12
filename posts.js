@@ -7,9 +7,11 @@
 const posts = [
   {
     id: 4,
+    slug: "kusuma-hotel-syariah-yogyakarta",
     title: "Review Kusuma Hotel Syariah Yogyakarta: Surga Bebas Asap Rokok & Ramah Anak di Sleman",
     category: "Travel",
     date: "Aug 2026",
+    dateISO: "2026-08-11",
     metaTitle: "Review Kusuma Hotel Syariah Yogyakarta: Bebas Asap Rokok & Ramah Anak!",
     metaDescription: "Pengalaman menginap di Kusuma Hotel Syariah Jogja. Kamar bebas asap rokok, ada playground, sarapan gudeg endul, plus surprise cuci mobil gratis!",
     excerpt: "Bintang lima! Hotel syariah bebas asap rokok, ada playground anak, kolam renang, dan sarapan gudeg endul — plus surprise cuci mobil gratis di pagi hari.",
@@ -64,9 +66,11 @@ const posts = [
   },
   {
     id: 1,
+    slug: "belajar-css-dari-nol",
     title: "Belajar CSS dari Nol: Apa yang Tidak Diajarkan Tutorial",
     category: "Coding",
     date: "Apr 2026",
+    dateISO: "2026-04-15",
     metaTitle: "Belajar CSS dari Nol: Apa yang Tidak Diajarkan Tutorial",
     metaDescription: "Kebanyakan tutorial CSS mengajarkan syntax, bukan cara berpikir. Ini yang sebenarnya perlu kamu pahami sebelum nulis satu baris pun.",
     excerpt: "Kebanyakan tutorial CSS mengajarkan syntax, bukan cara berpikir. Ini yang sebenarnya perlu kamu pahami sebelum nulis satu baris pun.",
@@ -94,9 +98,11 @@ const posts = [
   },
   {
     id: 2,
+    slug: "coding-sambil-tetap-konsisten-di-gym",
     title: "Cara Saya Coding Sambil Tetap Konsisten di Gym",
     category: "Lifestyle",
     date: "Mar 2026",
+    dateISO: "2026-03-15",
     metaTitle: "Cara Saya Coding Sambil Tetap Konsisten di Gym",
     metaDescription: "Dua hal yang katanya tidak bisa jalan bersamaan. Tapi setelah beberapa bulan mencoba, ini yang aku temukan.",
     excerpt: "Dua hal yang katanya tidak bisa jalan bersamaan. Tapi setelah beberapa bulan mencoba, ini yang aku temukan.",
@@ -126,9 +132,11 @@ const posts = [
   },
   {
     id: 3,
+    slug: "kenapa-rap-dan-coding-mirip",
     title: "Kenapa Rap dan Coding Lebih Mirip dari yang Kamu Kira",
     category: "Musik",
     date: "Feb 2026",
+    dateISO: "2026-02-15",
     metaTitle: "Kenapa Rap dan Coding Lebih Mirip dari yang Kamu Kira",
     metaDescription: "Dua skill yang kelihatannya tidak nyambung sama sekali. Tapi semakin dalam aku masuk ke keduanya, semakin banyak yang terasa sama.",
     excerpt: "Dua skill yang kelihatannya tidak nyambung sama sekali. Tapi semakin dalam aku masuk ke keduanya, semakin banyak yang terasa sama.",
@@ -159,3 +167,8 @@ const posts = [
     `
   }
 ];
+
+// Supaya posts.js bisa dipakai di Node (scripts/build.mjs) maupun browser
+if (typeof module !== "undefined") {
+  module.exports = posts;
+}
