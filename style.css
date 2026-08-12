@@ -74,6 +74,11 @@ header {
   background-color: var(--primary-color);
 }
 
+/* Target anchor tidak tertutup sticky header saat di-scroll */
+[id] {
+  scroll-margin-top: calc(var(--nav-height) + 12px);
+}
+
 .navbar {
   height: var(--nav-height);
   background-color: var(--primary-color);

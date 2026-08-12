@@ -15,6 +15,11 @@ document.addEventListener("click", (e) => {
   if (!wrapper.contains(e.target)) setOpen(false);
 });
 
+// Klik item di dalam menu --> tutup menu
+document.querySelectorAll(".mobile-menu a").forEach((link) => {
+  link.addEventListener("click", () => setOpen(false));
+});
+
 // Tekan Escape --> tutup
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") setOpen(false);

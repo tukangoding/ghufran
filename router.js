@@ -12,7 +12,7 @@
   function isRoutable(a) {
     if (a.target === "_blank" || a.hasAttribute("download")) return false;
     const href = a.getAttribute("href") || "";
-    if (href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return false;
+    if (href.startsWith("mailto:") || href.startsWith("tel:")) return false;
     try {
       return new URL(a.href, location.href).origin === location.origin;
     } catch {
@@ -45,10 +45,27 @@
     });
   }
 
+  function scrollToTarget(hash, smooth) {
+    const behavior = smooth ? "smooth" : "auto";
+    if (!hash || hash === "#") {
+      window.scrollTo({ top: 0, behavior });
+      return;
+    }
+    const el = document.getElementById(hash.slice(1));
+    if (el) el.scrollIntoView({ behavior, block: "start" });
+    else window.scrollTo({ top: 0, behavior });
+  }
+
   async function navigate(url, push) {
     const target = new URL(url, location.href);
     if (target.origin !== location.origin) {
       location.href = target.href;
+      return;
+    }
+    // Link anchor ke halaman yang sama: cukup scroll, tanpa fetch.
+    if (target.pathname === location.pathname && target.search === location.search) {
+      if (push) history.pushState({}, "", target.href);
+      scrollToTarget(target.hash, true);
       return;
     }
     try {
@@ -69,7 +86,7 @@
       copyOg(doc);
 
       if (push) history.pushState({}, "", target.href);
-      window.scrollTo(0, 0);
+      scrollToTarget(target.hash, push);
       document.dispatchEvent(new CustomEvent("page:loaded"));
     } catch {
       location.href = target.href; // fallback: navigasi normal
