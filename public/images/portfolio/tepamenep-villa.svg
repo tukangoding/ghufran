@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#f1f0eb"/>
+  <rect x="40" y="40" width="1120" height="595" rx="8" fill="#fff" stroke="#000" stroke-width="3"/>
+  <text x="600" y="300" text-anchor="middle" font-family="sans-serif" font-size="48" font-weight="700" fill="#000">Tepa Menep Villa</text>
+  <text x="600" y="360" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#666">tepamenepvilla.com</text>
+  <text x="600" y="420" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#999">Replace with actual screenshot</text>
+</svg>
