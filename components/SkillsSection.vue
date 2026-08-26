@@ -1,19 +1,24 @@
 <script setup lang="ts">
+const { observe } = useScrollReveal()
+
+onMounted(() => {
+  observe()
+})
 </script>
 
 <template>
   <section id="skills" class="skills">
     <div class="section-inner">
-      <div class="section-label">
+      <div class="section-label reveal-on-scroll">
         <span class="label-line"></span>
         <span class="label-text">Skills</span>
         <span class="label-num">03</span>
       </div>
 
-      <h2 class="section-title">Tools of the<br /><em>trade.</em></h2>
+      <h2 class="section-title reveal-on-scroll delay-1">Tools of the<br /><em>trade.</em></h2>
 
       <div class="sk-grid">
-        <div class="sk-card">
+        <div class="sk-card reveal-on-scroll delay-1">
           <div class="sk-card-top">
             <span class="sk-icon sk-icon--html">&lt;/&gt;</span>
             <span class="sk-status sk-status--built">Built with it</span>
@@ -26,7 +31,7 @@
           </p>
         </div>
 
-        <div class="sk-card">
+        <div class="sk-card reveal-on-scroll delay-2">
           <div class="sk-card-top">
             <span class="sk-icon sk-icon--css">{ }</span>
             <span class="sk-status sk-status--built">Built with it</span>
@@ -39,7 +44,7 @@
           </p>
         </div>
 
-        <div class="sk-card">
+        <div class="sk-card reveal-on-scroll delay-3">
           <div class="sk-card-top">
             <span class="sk-icon sk-icon--js">JS</span>
             <span class="sk-status sk-status--learning">Learning</span>
@@ -52,7 +57,7 @@
           </p>
         </div>
 
-        <div class="sk-card">
+        <div class="sk-card reveal-on-scroll delay-3">
           <div class="sk-card-top">
             <span class="sk-icon sk-icon--vue">V.</span>
             <span class="sk-status sk-status--built">Built with it</span>

@@ -1,23 +1,29 @@
 <script setup lang="ts">
+const { observe } = useScrollReveal()
+
 const { data: posts } = await useAsyncData('blog-preview', () =>
   queryContent('/blog')
     .sort({ date: -1 })
     .limit(3)
     .find()
 )
+
+onMounted(() => {
+  observe()
+})
 </script>
 
 <template>
   <section id="blog" class="blog">
     <div class="section-inner">
-      <div class="section-label">
+      <div class="section-label reveal-on-scroll">
         <span class="label-line"></span>
         <span class="label-text">Latest Posts</span>
         <span class="label-num">06</span>
       </div>
 
       <div class="blog-header">
-        <h2 class="section-title">Thoughts &<br /><em>bars.</em></h2>
+        <h2 class="section-title reveal-on-scroll delay-1">Thoughts &<br /><em>bars.</em></h2>
         <NuxtLink to="/blog/" class="blog-see-all">Lihat semua &rarr;</NuxtLink>
       </div>
 

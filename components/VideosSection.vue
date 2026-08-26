@@ -1,4 +1,10 @@
 <script setup lang="ts">
+const { observe } = useScrollReveal()
+
+onMounted(() => {
+  observe()
+})
+
 const videos = [
   {
     src: 'https://www.youtube-nocookie.com/embed/qYTaTsOgqLQ',
@@ -54,14 +60,14 @@ const videos = [
 <template>
   <section id="videos" class="videos">
     <div class="section-inner">
-      <div class="section-label">
+      <div class="section-label reveal-on-scroll">
         <span class="label-line"></span>
         <span class="label-text">Watch</span>
         <span class="label-num">05</span>
       </div>
 
       <div class="blog-header">
-        <h2 class="section-title">On the<br /><em>mic &amp; screen.</em></h2>
+        <h2 class="section-title reveal-on-scroll delay-1">On the<br /><em>mic &amp; screen.</em></h2>
         <a
           href="https://youtube.com"
           target="_blank"

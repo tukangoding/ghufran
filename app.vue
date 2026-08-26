@@ -9,4 +9,5 @@
 
 <script setup lang="ts">
 useCustomCursor()
+useLenis()
 </script>

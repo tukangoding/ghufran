@@ -1,4 +1,10 @@
 <script setup lang="ts">
+const { observe } = useScrollReveal()
+
+onMounted(() => {
+  observe()
+})
+
 interface PortfolioItem {
   title: string
   desc: string
@@ -31,7 +37,7 @@ const items: PortfolioItem[] = [
     href: 'https://alfproduction.id/',
     tags: ['HTML', 'CSS', 'JS'],
     tag: 'Live Project',
-    thumbnail: '/images/portfolio/alf-production.svg',
+    thumbnail: '/images/portfolio/alf-production.png',
   },
   {
     title: 'Tepa Menep Villa',
@@ -47,23 +53,23 @@ const items: PortfolioItem[] = [
 <template>
   <section id="portfolio" class="portfolio">
     <div class="section-inner">
-      <div class="section-label">
+      <div class="section-label reveal-on-scroll">
         <span class="label-line"></span>
         <span class="label-text">Portfolio</span>
         <span class="label-num">04</span>
       </div>
 
-      <h2 class="section-title">Things I've<br /><em>built.</em></h2>
+      <h2 class="section-title reveal-on-scroll delay-1">Things I've<br /><em>built.</em></h2>
 
       <div class="portfolio-grid">
         <a
-          v-for="item in items"
+          v-for="(item, i) in items"
           :key="item.title"
           :href="item.href"
           target="_blank"
           rel="noopener"
-          class="portfolio-card"
-          :class="{ 'portfolio-card--featured': item.featured }"
+          class="portfolio-card reveal-on-scroll"
+          :class="[{ 'portfolio-card--featured': item.featured }, `delay-${Math.min(i + 1, 3)}`]"
         >
           <div class="portfolio-card__top">
             <span class="portfolio-tag">{{ item.tag }}</span>

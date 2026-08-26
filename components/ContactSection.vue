@@ -1,4 +1,10 @@
 <script setup lang="ts">
+const { observe } = useScrollReveal()
+
+onMounted(() => {
+  observe()
+})
+
 const contactLinks = [
   {
     label: 'Email',
@@ -24,7 +30,7 @@ const contactLinks = [
 <template>
   <section id="contact" class="contact">
     <div class="section-inner">
-      <div class="section-label">
+      <div class="section-label reveal-on-scroll">
         <span class="label-line"></span>
         <span class="label-text">Contact</span>
         <span class="label-num">07</span>
@@ -32,10 +38,10 @@ const contactLinks = [
 
       <div class="contact-grid">
         <div class="contact-left">
-          <h2 class="section-title contact-title">
+          <h2 class="section-title contact-title reveal-on-scroll delay-1">
             Let's build<br /><em>something.</em>
           </h2>
-          <p class="contact-sub">
+          <p class="contact-sub reveal-on-scroll delay-2">
             Open for collaboration, project, atau sekadar ngobrol soal rap
             dan coding.
           </p>

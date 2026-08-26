@@ -1,10 +1,15 @@
 <script setup lang="ts">
+const { observe } = useScrollReveal()
+
+onMounted(() => {
+  observe()
+})
 </script>
 
 <template>
   <section id="about" class="about">
     <div class="section-inner">
-      <div class="section-label">
+      <div class="section-label reveal-on-scroll">
         <span class="label-line"></span>
         <span class="label-text">About</span>
         <span class="label-num">02</span>
@@ -12,7 +17,7 @@
 
       <div class="about-grid">
         <div class="about-left">
-          <h2 class="section-title">
+          <h2 class="section-title reveal-on-scroll delay-1">
             A coder who<br /><em>rhymes & lifts.</em>
           </h2>
           <div class="about-divider"></div>
