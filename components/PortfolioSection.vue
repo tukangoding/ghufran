@@ -45,7 +45,7 @@ const items: PortfolioItem[] = [
     href: 'https://tepamenepvilla.com/',
     tags: ['Payment Gateway', 'Integration'],
     tag: 'Integration',
-    thumbnail: '/images/portfolio/tepamenep-villa.svg',
+    thumbnail: '/images/portfolio/tepamenep-villa.png',
   },
 ]
 </script>
