@@ -1,20 +1,21 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
 
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://tukangoding.github.io/ghufran',
+      siteUrl:
+        process.env.NUXT_PUBLIC_SITE_URL || "https://ghufolio.edgeone.dev/",
     },
   },
 
-  modules: ['@nuxt/content'],
+  modules: ["@nuxt/content"],
 
   content: {
     // Content configuration
     highlight: {
-      theme: 'github-dark',
+      theme: "github-dark",
     },
   },
 
@@ -22,7 +23,7 @@ export default defineNuxtConfig({
   ssr: true,
   nitro: {
     prerender: {
-      routes: ['/', '/robots.txt', '/sitemap.xml'],
+      routes: ["/", "/robots.txt", "/sitemap.xml"],
     },
   },
 
@@ -30,25 +31,27 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
-        lang: 'id',
+        lang: "id",
       },
-      title: 'Ghufran El Azizi — Frontend Developer, Musisi & Kreator',
+      title: "Ghufran El Azizi — Frontend Developer, Musisi & Kreator",
       meta: [
-        { charset: 'UTF-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
-        { name: 'description', content: 'Portfolio Ghufran El Azizi, frontend developer, musisi, dan kreator digital yang membangun website serta menulis tentang coding dan kehidupan.' },
-        { name: 'theme-color', content: '#ff90e8' },
+        { charset: "UTF-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+        {
+          name: "description",
+          content:
+            "Portfolio Ghufran El Azizi, frontend developer, musisi, dan kreator digital yang membangun website serta menulis tentang coding dan kehidupan.",
+        },
+        { name: "theme-color", content: "#ff90e8" },
       ],
-      link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-      ],
+      link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
     },
     pageTransition: {
-      name: 'page',
-      mode: 'out-in',
+      name: "page",
+      mode: "out-in",
     },
   },
 
   // CSS
-  css: ['~/assets/css/main.css'],
-})
+  css: ["~/assets/css/main.css"],
+});
