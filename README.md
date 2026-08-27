@@ -104,13 +104,14 @@ Domain canonical default adalah `https://tukangoding.github.io/ghufran`. Jika
 deploy ke domain lain, set environment variable berikut saat build:
 
 ```bash
-NUXT_PUBLIC_SITE_URL=https://domainkamu.com npm run generate
+NUXT_PUBLIC_SITE_URL=https://ghufolio.edgeone.dev npm run generate
 ```
 
 Nilai tersebut dipakai bersama oleh canonical URL, Open Graph, JSON-LD,
 `robots.txt`, dan `sitemap.xml`.
 
 Static files di `.output/public/` bisa di-deploy ke:
+
 - Edgeone (SSG)
 - Vercel
 - Netlify
