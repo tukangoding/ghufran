@@ -4,6 +4,10 @@ category: "Travel"
 date: "Aug 2026"
 dateISO: "2026-08-11"
 excerpt: "Bintang lima! Hotel syariah bebas asap rokok, ada playground anak, kolam renang, dan sarapan gudeg endul — plus surprise cuci mobil gratis di pagi hari."
+description: "Review pengalaman keluarga di Kusuma Hotel Syariah Yogyakarta: kamar bebas asap rokok, playground, kolam renang, sarapan, dan pelayanan staf."
+author: "Ghufran El Azizi"
+image: "/images/blog/kusuma-hotel-syariah-yogyakarta.jpg"
+imageAlt: "Ilustrasi kamar hotel keluarga yang hangat dengan sarapan, mainan anak, dan kolam renang"
 ---
 
 Aku mau kasih bintang lima ⭐ ⭐ ⭐ ⭐ ⭐ buat Kusuma Hotel Syariah Yogyakarta! Kenapa? Ada banyak plot twist menyenangkan selama menginap di sini yang bikin sekeluarga happy banget.

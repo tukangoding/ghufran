@@ -4,6 +4,10 @@ category: "Coding"
 date: "Apr 2026"
 dateISO: "2026-04-15"
 excerpt: "Kebanyakan tutorial CSS mengajarkan syntax, bukan cara berpikir. Ini yang sebenarnya perlu kamu pahami sebelum nulis satu baris pun."
+description: "Pelajari cara berpikir tentang layout, browser, DevTools, dan performa CSS—hal-hal penting yang sering dilewatkan tutorial pemula."
+author: "Ghufran El Azizi"
+image: "/images/blog/belajar-css-dari-nol.jpg"
+imageAlt: "Ilustrasi neo-brutalist tentang penyusunan layout responsif dengan CSS"
 ---
 
 Waktu pertama kali belajar CSS, aku pikir cukup hafal property-nya. **Salah besar.**

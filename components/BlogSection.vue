@@ -42,7 +42,7 @@ onMounted(() => {
             <h3 class="blog-title">{{ post.title }}</h3>
           </div>
           <div class="blog-item__right">
-            <span class="blog-date">{{ post.date }}</span>
+              <time class="blog-date" :datetime="post.dateISO">{{ post.date }}</time>
             <svg class="blog-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
               <path d="M3 13L13 3M13 3H6M13 3v7" />
             </svg>

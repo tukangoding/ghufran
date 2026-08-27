@@ -68,10 +68,14 @@ npm run preview    # Preview hasil generate
    ---
    title: "Judul Artikel"
    category: "Coding"
-   date: "Mar 2026"
-   dateISO: "2026-03-15"
-   excerpt: "Ringkasan singkat..."
-   ---
+    date: "Mar 2026"
+    dateISO: "2026-03-15"
+    excerpt: "Ringkasan singkat..."
+    description: "Meta description unik untuk hasil pencarian..."
+    author: "Ghufran El Azizi"
+    image: "/images/blog/nama-cover.jpg"
+    imageAlt: "Deskripsi visual cover artikel"
+    ---
    ```
 3. Tulis konten di bawah frontmatter
 4. Build & deploy
@@ -95,6 +99,16 @@ npm run preview    # Preview hasil generate
 - Blog post: `/blog/<slug>/`
 
 ## Deployment
+
+Domain canonical default adalah `https://tukangoding.github.io/ghufran`. Jika
+deploy ke domain lain, set environment variable berikut saat build:
+
+```bash
+NUXT_PUBLIC_SITE_URL=https://domainkamu.com npm run generate
+```
+
+Nilai tersebut dipakai bersama oleh canonical URL, Open Graph, JSON-LD,
+`robots.txt`, dan `sitemap.xml`.
 
 Static files di `.output/public/` bisa di-deploy ke:
 - Edgeone (SSG)

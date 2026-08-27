@@ -1,6 +1,53 @@
 <script setup lang="ts">
+const { absoluteUrl } = useSiteUrl()
+
+const title = 'Artikel Coding, Musik, Gym & Kehidupan — ghufrxn.'
+const description = 'Kumpulan artikel Ghufran El Azizi tentang frontend development, coding, musik rap, gym, perjalanan, dan proses belajar.'
+const canonicalUrl = absoluteUrl('/blog')
+const socialImage = absoluteUrl('/images/seo/portfolio-og.jpg')
+
+useSeoMeta({
+  title,
+  description,
+  robots: 'index, follow',
+  ogTitle: title,
+  ogDescription: description,
+  ogType: 'website',
+  ogUrl: canonicalUrl,
+  ogImage: socialImage,
+  ogImageAlt: 'Ilustrasi blog Ghufran El Azizi tentang coding, musik, dan kehidupan',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  twitterCard: 'summary_large_image',
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: socialImage,
+  twitterImageAlt: 'Ilustrasi blog Ghufran El Azizi tentang coding, musik, dan kehidupan',
+})
+
 useHead({
-  title: 'Blog — ghufrxn.',
+  link: [
+    { rel: 'canonical', href: canonicalUrl },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        '@id': `${canonicalUrl}#blog`,
+        url: canonicalUrl,
+        name: title,
+        description,
+        inLanguage: 'id-ID',
+        author: {
+          '@type': 'Person',
+          name: 'Ghufran El Azizi',
+          url: absoluteUrl('/'),
+        },
+      }),
+    },
+  ],
 })
 
 const { data: posts } = await useAsyncData('blog-list', () =>
@@ -39,7 +86,7 @@ const { data: posts } = await useAsyncData('blog-list', () =>
               <p class="blog-excerpt">{{ post.excerpt }}</p>
             </div>
             <div class="blog-item__right">
-              <span class="blog-date">{{ post.date }}</span>
+              <time class="blog-date" :datetime="post.dateISO">{{ post.date }}</time>
               <svg class="blog-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
                 <path d="M3 13L13 3M13 3H6M13 3v7" />
               </svg>

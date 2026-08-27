@@ -4,6 +4,10 @@ category: "Lifestyle"
 date: "Mar 2026"
 dateISO: "2026-03-15"
 excerpt: "Dua hal yang katanya tidak bisa jalan bersamaan. Tapi setelah beberapa bulan mencoba, ini yang aku temukan."
+description: "Pengalaman mengatur energi, waktu latihan, dan sesi belajar agar coding dan gym tetap konsisten tanpa harus menunggu mood."
+author: "Ghufran El Azizi"
+image: "/images/blog/coding-sambil-tetap-konsisten-di-gym.jpg"
+imageAlt: "Ilustrasi laptop, kettlebell, sepatu latihan, botol minum, dan jam"
 ---
 
 Orang sering bilang: *"mana bisa coding sambil gym, waktunya kurang."* Dan aku dulu percaya itu.

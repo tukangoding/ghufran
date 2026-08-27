@@ -7,12 +7,76 @@ const { data: post } = await useAsyncData(`blog-${route.params.slug}`, () =>
     .findOne()
 )
 
+const { absoluteUrl } = useSiteUrl()
+
 if (post.value) {
-  useHead({
+  const authorName = post.value.author || 'Ghufran El Azizi'
+  const description = post.value.description || post.value.excerpt
+  const canonicalUrl = absoluteUrl(post.value._path)
+  const socialImage = absoluteUrl(post.value.image || '/images/seo/portfolio-og.jpg')
+  const imageAlt = post.value.imageAlt || `Ilustrasi artikel ${post.value.title}`
+
+  useSeoMeta({
     title: `${post.value.title} — ghufrxn.`,
-    meta: [
-      { name: 'description', content: post.value.excerpt },
+    description,
+    robots: 'index, follow',
+    ogTitle: post.value.title,
+    ogDescription: description,
+    ogType: 'article',
+    ogUrl: canonicalUrl,
+    ogImage: socialImage,
+    ogImageAlt: imageAlt,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    articlePublishedTime: post.value.dateISO,
+    articleModifiedTime: post.value.dateModified || post.value.dateISO,
+    articleAuthor: authorName,
+    twitterCard: 'summary_large_image',
+    twitterTitle: post.value.title,
+    twitterDescription: description,
+    twitterImage: socialImage,
+    twitterImageAlt: imageAlt,
+  })
+
+  useHead({
+    link: [
+      { rel: 'canonical', href: canonicalUrl },
     ],
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: post.value.title,
+          description,
+          image: [socialImage],
+          datePublished: post.value.dateISO,
+          dateModified: post.value.dateModified || post.value.dateISO,
+          inLanguage: 'id-ID',
+          author: {
+            '@type': 'Person',
+            name: authorName,
+            url: absoluteUrl('/'),
+          },
+          publisher: {
+            '@type': 'Person',
+            name: authorName,
+            url: absoluteUrl('/'),
+          },
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': canonicalUrl,
+          },
+        }),
+      },
+    ],
+  })
+} else {
+  setResponseStatus(404)
+  useSeoMeta({
+    title: 'Artikel Tidak Ditemukan — ghufrxn.',
+    robots: 'noindex, nofollow',
   })
 }
 </script>
@@ -25,7 +89,7 @@ if (post.value) {
 
         <div class="post-meta">
           <span class="blog-category">{{ post.category }}</span>
-          <span class="post-date">{{ post.date }}</span>
+          <time class="post-date" :datetime="post.dateISO">{{ post.date }}</time>
         </div>
 
         <h1 class="post-title">{{ post.title }}</h1>
@@ -33,7 +97,15 @@ if (post.value) {
 
       <div class="post-body-wrap">
         <div class="post-inner">
-          <ContentDoc />
+          <figure v-if="post.image" class="post-cover">
+            <img
+              :src="post.image"
+              :alt="post.imageAlt || `Ilustrasi artikel ${post.title}`"
+              width="1200"
+              height="630"
+            />
+          </figure>
+          <ContentDoc :path="post._path" :head="false" />
         </div>
       </div>
     </section>
@@ -111,6 +183,23 @@ if (post.value) {
   max-width: 680px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+.post-cover {
+  margin: 0 0 2.5rem;
+  overflow: hidden;
+  border: 2px solid var(--black-color);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  background: var(--gum-peach);
+}
+
+.post-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
 }
 
 .post-notfound {

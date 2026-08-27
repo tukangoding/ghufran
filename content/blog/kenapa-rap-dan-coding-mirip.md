@@ -4,6 +4,10 @@ category: "Musik"
 date: "Feb 2026"
 dateISO: "2026-02-15"
 excerpt: "Dua skill yang kelihatannya tidak nyambung sama sekali. Tapi semakin dalam aku masuk ke keduanya, semakin banyak yang terasa sama."
+description: "Rap dan coding sama-sama mengandalkan struktur, revisi, dan komunikasi. Inilah hubungan kreatif yang terasa setelah menjalani keduanya."
+author: "Ghufran El Azizi"
+image: "/images/blog/kenapa-rap-dan-coding-mirip.jpg"
+imageAlt: "Ilustrasi mikrofon studio, headphone, laptop, dan buku catatan kreatif"
 ---
 
 Pertama kali aku bilang ke orang bahwa aku rapper sekaligus programmer, reaksinya selalu sama: *"hah, nyambung?"*
